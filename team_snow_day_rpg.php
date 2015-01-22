@@ -79,25 +79,25 @@ add_action( 'init', 'tsdrpg_init' );
 
 // Declare Custom Post Types
 // Register Custom Post Type
-function tsdrpg_class_summary() {
+function tsdrpg_class_page() {
 
 	$labels = array(
-		'name'                => _x( 'Class Summaries', 'Post Type General Name', 'tsdrpg' ),
-		'singular_name'       => _x( 'Class Summary', 'Post Type Singular Name', 'tsdrpg' ),
-		'menu_name'           => __( 'Class Summaries', 'tsdrpg' ),
+		'name'                => _x( 'Class Pages', 'Post Type General Name', 'tsdrpg' ),
+		'singular_name'       => _x( 'Class Page', 'Post Type Singular Name', 'tsdrpg' ),
+		'menu_name'           => __( 'Class Pages', 'tsdrpg' ),
 		'parent_item_colon'   => __( 'Parent Class:', 'tsdrpg' ),
-		'all_items'           => __( 'All Class Summaries', 'tsdrpg' ),
-		'view_item'           => __( 'View Class Summary', 'tsdrpg' ),
-		'add_new_item'        => __( 'Add New Class Summary', 'tsdrpg' ),
+		'all_items'           => __( 'All Class Pages', 'tsdrpg' ),
+		'view_item'           => __( 'View Class Page', 'tsdrpg' ),
+		'add_new_item'        => __( 'Add New Class Page', 'tsdrpg' ),
 		'add_new'             => __( 'Add New', 'tsdrpg' ),
-		'edit_item'           => __( 'Edit Class Summary', 'tsdrpg' ),
-		'update_item'         => __( 'Update Class Summary', 'tsdrpg' ),
-		'search_items'        => __( 'Search Class Summaries', 'tsdrpg' ),
+		'edit_item'           => __( 'Edit Class Page', 'tsdrpg' ),
+		'update_item'         => __( 'Update Class Page', 'tsdrpg' ),
+		'search_items'        => __( 'Search Class Pages', 'tsdrpg' ),
 		'not_found'           => __( 'Not found', 'tsdrpg' ),
 		'not_found_in_trash'  => __( 'Not found in Trash', 'tsdrpg' ),
 	);
 	$args = array(
-		'label'               => __( 'tsdrpg_class_summary', 'tsdrpg' ),
+		'label'               => __( 'tsdrpg_class_page', 'tsdrpg' ),
 		'description'         => __( 'Post Type Description', 'tsdrpg' ),
 		'labels'              => $labels,
 		'supports'            => array( 'title', 'editor', 'thumbnail', 'custom-fields', 'page-attributes', ),
@@ -116,34 +116,34 @@ function tsdrpg_class_summary() {
 		'publicly_queryable'  => true,
 		'capability_type'     => 'page',
 	);
-	register_post_type( 'tsdrpg_class_summary', $args );
+	register_post_type( 'tsdrpg_class_page', $args );
 
 }
 
 // Hook into the 'init' action
-add_action( 'init', 'tsdrpg_class_summary', 0 );
+add_action( 'init', 'tsdrpg_class_page', 0 );
 
 // Register Custom Post Type
-function tsdrpg_species_summary() {
+function tsdrpg_species_page() {
 
 	$labels = array(
-		'name'                => _x( 'Species Summaries', 'Post Type General Name', 'tsdrpg' ),
-		'singular_name'       => _x( 'Species Summary', 'Post Type Singular Name', 'tsdrpg' ),
-		'menu_name'           => __( 'Species Summaries', 'tsdrpg' ),
+		'name'                => _x( 'Species Pages', 'Post Type General Name', 'tsdrpg' ),
+		'singular_name'       => _x( 'Species Page', 'Post Type Singular Name', 'tsdrpg' ),
+		'menu_name'           => __( 'Species Pages', 'tsdrpg' ),
 		'parent_item_colon'   => __( 'Parent Species:', 'tsdrpg' ),
-		'all_items'           => __( 'All Species Summaries', 'tsdrpg' ),
-		'view_item'           => __( 'View Species Summary', 'tsdrpg' ),
-		'add_new_item'        => __( 'Add New Species Summary', 'tsdrpg' ),
+		'all_items'           => __( 'All Species Pages', 'tsdrpg' ),
+		'view_item'           => __( 'View Species Page', 'tsdrpg' ),
+		'add_new_item'        => __( 'Add New Species Page', 'tsdrpg' ),
 		'add_new'             => __( 'Add New', 'tsdrpg' ),
-		'edit_item'           => __( 'Edit Species Summary', 'tsdrpg' ),
-		'update_item'         => __( 'Update Species Summary', 'tsdrpg' ),
-		'search_items'        => __( 'Search Species Summaries', 'tsdrpg' ),
+		'edit_item'           => __( 'Edit Species Page', 'tsdrpg' ),
+		'update_item'         => __( 'Update Species Page', 'tsdrpg' ),
+		'search_items'        => __( 'Search Species Pages', 'tsdrpg' ),
 		'not_found'           => __( 'Not found', 'tsdrpg' ),
 		'not_found_in_trash'  => __( 'Not found in Trash', 'tsdrpg' ),
 	);
 	$args = array(
-		'label'               => __( 'tsdrpg_species_summary', 'tsdrpg' ),
-		'description'         => __( 'Basic summary page for a given species', 'tsdrpg' ),
+		'label'               => __( 'tsdrpg_species_page', 'tsdrpg' ),
+		'description'         => __( 'Basic page page for a given species', 'tsdrpg' ),
 		'labels'              => $labels,
 		'supports'            => array( 'title', 'editor', 'thumbnail', 'custom-fields', 'page-attributes', ),
 		'taxonomies'          => array( 'category', 'post_tag' ),
@@ -153,7 +153,7 @@ function tsdrpg_species_summary() {
 		'show_in_menu'        => true,
 		'show_in_nav_menus'   => true,
 		'show_in_admin_bar'   => true,
-		'menu_position'       => 20,
+		'menu_position'       => 21,
 		'menu_icon'           => 'dashicons-groups',
 		'can_export'          => true,
 		'has_archive'         => true,
@@ -161,9 +161,9 @@ function tsdrpg_species_summary() {
 		'publicly_queryable'  => true,
 		'capability_type'     => 'page',
 	);
-	register_post_type( 'tsdrpg_species_summary', $args );
+	register_post_type( 'tsdrpg_species_page', $args );
 
 }
 
 // Hook into the 'init' action
-add_action( 'init', 'tsdrpg_species_summary', 0 );
+add_action( 'init', 'tsdrpg_species_page', 0 );
