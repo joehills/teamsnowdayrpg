@@ -78,6 +78,51 @@ add_action( 'init', 'tsdrpg_init' );
 // Wireup shortcodes
 
 // Declare Custom Post Types
+
+// Register Custom Post Type
+function tsdrpg_chapter_intro() {
+
+	$labels = array(
+		'name'                => _x( 'Chapter Introductions', 'Post Type General Name', 'tsdrpg' ),
+		'singular_name'       => _x( 'Chapter Introduction', 'Post Type Singular Name', 'tsdrpg' ),
+		'menu_name'           => __( 'Chapter Intros', 'tsdrpg' ),
+		'parent_item_colon'   => __( 'Parent Intro:', 'tsdrpg' ),
+		'all_items'           => __( 'All Intros', 'tsdrpg' ),
+		'view_item'           => __( 'View Chapter Intro', 'tsdrpg' ),
+		'add_new_item'        => __( 'Add New Intro', 'tsdrpg' ),
+		'add_new'             => __( 'Add New', 'tsdrpg' ),
+		'edit_item'           => __( 'Edit Intro', 'tsdrpg' ),
+		'update_item'         => __( 'Update Intro', 'tsdrpg' ),
+		'search_items'        => __( 'Search Chapter Introductions', 'tsdrpg' ),
+		'not_found'           => __( 'Not found', 'tsdrpg' ),
+		'not_found_in_trash'  => __( 'Not found in Trash', 'tsdrpg' ),
+	);
+	$args = array(
+		'label'               => __( 'tsdrpg_chapter_intro', 'tsdrpg' ),
+		'description'         => __( 'Introductory text of a chapter', 'tsdrpg' ),
+		'labels'              => $labels,
+		'supports'            => array( 'title', 'editor', 'excerpt', 'thumbnail', 'revisions', 'custom-fields', 'page-attributes', ),
+		'taxonomies'          => array( 'category', 'post_tag', ' tsdrpg_chapters' ),
+		'hierarchical'        => false,
+		'public'              => true,
+		'show_ui'             => true,
+		'show_in_menu'        => true,
+		'show_in_nav_menus'   => true,
+		'show_in_admin_bar'   => true,
+		'menu_position'       => 20,
+		'menu_icon'           => 'dashicons-groups',
+		'can_export'          => true,
+		'has_archive'         => true,
+		'exclude_from_search' => false,
+		'publicly_queryable'  => true,
+		'capability_type'     => 'page',
+	);
+	register_post_type( 'tsdrpg_chapter_intro', $args );
+
+}
+
+// Hook into the 'init' action
+add_action( 'init', 'tsdrpg_chapter_intro', 0 );
 // Register Custom Post Type
 function tsdrpg_class_page() {
 
@@ -122,6 +167,51 @@ function tsdrpg_class_page() {
 
 // Hook into the 'init' action
 add_action( 'init', 'tsdrpg_class_page', 0 );
+
+// Register Custom Post Type
+function tsdrpg_feat() {
+
+	$labels = array(
+		'name'                => _x( 'Feats', 'Post Type General Name', 'tsdrpg' ),
+		'singular_name'       => _x( 'Feat', 'Post Type Singular Name', 'tsdrpg' ),
+		'menu_name'           => __( 'Feats', 'tsdrpg' ),
+		'parent_item_colon'   => __( 'Parent Feat:', 'tsdrpg' ),
+		'all_items'           => __( 'All Feats', 'tsdrpg' ),
+		'view_item'           => __( 'View Feat', 'tsdrpg' ),
+		'add_new_item'        => __( 'Add New Feat', 'tsdrpg' ),
+		'add_new'             => __( 'Add New', 'tsdrpg' ),
+		'edit_item'           => __( 'Edit Feat', 'tsdrpg' ),
+		'update_item'         => __( 'Update Feat', 'tsdrpg' ),
+		'search_items'        => __( 'Search Feats', 'tsdrpg' ),
+		'not_found'           => __( 'Not found', 'tsdrpg' ),
+		'not_found_in_trash'  => __( 'Not found in Trash', 'tsdrpg' ),
+	);
+	$args = array(
+		'label'               => __( 'tsdrpg_feat', 'tsdrpg' ),
+		'description'         => __( 'Feats allow additional character customization', 'tsdrpg' ),
+		'labels'              => $labels,
+		'supports'            => array( 'title', 'editor', 'excerpt', 'thumbnail', 'comments', 'revisions', 'custom-fields', 'page-attributes', ),
+		'taxonomies'          => array( 'category', 'post_tag', ' tsdrpg_classes' ),
+		'hierarchical'        => false,
+		'public'              => true,
+		'show_ui'             => true,
+		'show_in_menu'        => true,
+		'show_in_nav_menus'   => true,
+		'show_in_admin_bar'   => true,
+		'menu_position'       => 20,
+		'menu_icon'           => 'dashicons-groups',
+		'can_export'          => true,
+		'has_archive'         => true,
+		'exclude_from_search' => false,
+		'publicly_queryable'  => true,
+		'capability_type'     => 'page',
+	);
+	register_post_type( 'tsdrpg_feat', $args );
+
+}
+
+// Hook into the 'init' action
+add_action( 'init', 'tsdrpg_feat', 0 );
 
 // Register Custom Post Type
 function tsdrpg_species_page() {
@@ -169,74 +259,35 @@ function tsdrpg_species_page() {
 add_action( 'init', 'tsdrpg_species_page', 0 );
 
 // Register Custom Post Type
-function tsdrpg_chapter_intro() {
+function tsdrpg_spell() {
 
 	$labels = array(
-		'name'                => _x( 'Chapter Introductions', 'Post Type General Name', 'tsdrpg' ),
-		'singular_name'       => _x( 'Chapter Introduction', 'Post Type Singular Name', 'tsdrpg' ),
-		'menu_name'           => __( 'Chapter Intros', 'tsdrpg' ),
-		'parent_item_colon'   => __( 'Parent Intro:', 'tsdrpg' ),
-		'all_items'           => __( 'All Intros', 'tsdrpg' ),
-		'view_item'           => __( 'View Chapter Intro', 'tsdrpg' ),
-		'add_new_item'        => __( 'Add New Intro', 'tsdrpg' ),
+		'name'                => _x( 'Spells', 'Post Type General Name', 'tsdrpg' ),
+		'singular_name'       => _x( 'Spell', 'Post Type Singular Name', 'tsdrpg' ),
+		'menu_name'           => __( 'Spells', 'tsdrpg' ),
+		'parent_item_colon'   => __( 'Parent Spell:', 'tsdrpg' ),
+		'all_items'           => __( 'All Spells', 'tsdrpg' ),
+		'view_item'           => __( 'View Spell', 'tsdrpg' ),
+		'add_new_item'        => __( 'Add New Spell', 'tsdrpg' ),
 		'add_new'             => __( 'Add New', 'tsdrpg' ),
-		'edit_item'           => __( 'Edit Intro', 'tsdrpg' ),
-		'update_item'         => __( 'Update Intro', 'tsdrpg' ),
-		'search_items'        => __( 'Search Chapter Introductions', 'tsdrpg' ),
+		'edit_item'           => __( 'Edit Spell', 'tsdrpg' ),
+		'update_item'         => __( 'Update Spell', 'tsdrpg' ),
+		'search_items'        => __( 'Search Spells', 'tsdrpg' ),
 		'not_found'           => __( 'Not found', 'tsdrpg' ),
 		'not_found_in_trash'  => __( 'Not found in Trash', 'tsdrpg' ),
 	);
-	$args = array(
-		'label'               => __( 'tsdrpg_chapter_intro', 'tsdrpg' ),
-		'description'         => __( 'Introductory text of a chapter', 'tsdrpg' ),
-		'labels'              => $labels,
-		'supports'            => array( 'title', 'editor', 'excerpt', 'thumbnail', 'revisions', 'custom-fields', 'page-attributes', ),
-		'taxonomies'          => array( 'category', 'post_tag', ' tsdrpg_chapters' ),
-		'hierarchical'        => false,
-		'public'              => true,
-		'show_ui'             => true,
-		'show_in_menu'        => true,
-		'show_in_nav_menus'   => true,
-		'show_in_admin_bar'   => true,
-		'menu_position'       => 20,
-		'menu_icon'           => 'dashicons-groups',
-		'can_export'          => true,
-		'has_archive'         => true,
-		'exclude_from_search' => false,
-		'publicly_queryable'  => true,
-		'capability_type'     => 'page',
-	);
-	register_post_type( 'tsdrpg_chapter_intro', $args );
-
-}
-
-// Hook into the 'init' action
-add_action( 'init', 'tsdrpg_chapter_intro', 0 );
-
-// Register Custom Post Type
-function tsdrpg_feat() {
-
-	$labels = array(
-		'name'                => _x( 'Feats', 'Post Type General Name', 'tsdrpg' ),
-		'singular_name'       => _x( 'Feat', 'Post Type Singular Name', 'tsdrpg' ),
-		'menu_name'           => __( 'Feats', 'tsdrpg' ),
-		'parent_item_colon'   => __( 'Parent Feat:', 'tsdrpg' ),
-		'all_items'           => __( 'All Feats', 'tsdrpg' ),
-		'view_item'           => __( 'View Feat', 'tsdrpg' ),
-		'add_new_item'        => __( 'Add New Feat', 'tsdrpg' ),
-		'add_new'             => __( 'Add New', 'tsdrpg' ),
-		'edit_item'           => __( 'Edit Feat', 'tsdrpg' ),
-		'update_item'         => __( 'Update Feat', 'tsdrpg' ),
-		'search_items'        => __( 'Search Feats', 'tsdrpg' ),
-		'not_found'           => __( 'Not found', 'tsdrpg' ),
-		'not_found_in_trash'  => __( 'Not found in Trash', 'tsdrpg' ),
+	$rewrite = array(
+		'slug'                => 'spells',
+		'with_front'          => true,
+		'pages'               => true,
+		'feeds'               => true,
 	);
 	$args = array(
-		'label'               => __( 'tsdrpg_feat', 'tsdrpg' ),
-		'description'         => __( 'Feats allow additional character customization', 'tsdrpg' ),
+		'label'               => __( 'tsdrpg_spell', 'tsdrpg' ),
+		'description'         => __( 'Learnable magic abilities', 'tsdrpg' ),
 		'labels'              => $labels,
 		'supports'            => array( 'title', 'editor', 'excerpt', 'thumbnail', 'comments', 'revisions', 'custom-fields', 'page-attributes', ),
-		'taxonomies'          => array( 'category', 'post_tag', ' tsdrpg_classes' ),
+		'taxonomies'          => array( 'category', 'post_tag', ' tsdrpg_schools' ),
 		'hierarchical'        => false,
 		'public'              => true,
 		'show_ui'             => true,
@@ -249,14 +300,15 @@ function tsdrpg_feat() {
 		'has_archive'         => true,
 		'exclude_from_search' => false,
 		'publicly_queryable'  => true,
+		'rewrite'             => $rewrite,
 		'capability_type'     => 'page',
 	);
-	register_post_type( 'tsdrpg_feat', $args );
+	register_post_type( 'tsdrpg_spell', $args );
 
 }
 
 // Hook into the 'init' action
-add_action( 'init', 'tsdrpg_feat', 0 );
+add_action( 'init', 'tsdrpg_spell', 0 );
 
 // Register Custom Taxonomy
 function tsdrpg_chapters() {
