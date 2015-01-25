@@ -214,6 +214,57 @@ function tsdrpg_feat() {
 add_action( 'init', 'tsdrpg_feat', 0 );
 
 // Register Custom Post Type
+function tsdrpg_item() {
+
+	$labels = array(
+		'name'                => _x( 'Items', 'Post Type General Name', 'tsdrpg' ),
+		'singular_name'       => _x( 'Item', 'Post Type Singular Name', 'tsdrpg' ),
+		'menu_name'           => __( 'Items', 'tsdrpg' ),
+		'parent_item_colon'   => __( 'Parent Item:', 'tsdrpg' ),
+		'all_items'           => __( 'All Items', 'tsdrpg' ),
+		'view_item'           => __( 'View Item', 'tsdrpg' ),
+		'add_new_item'        => __( 'Add New Item', 'tsdrpg' ),
+		'add_new'             => __( 'Add New', 'tsdrpg' ),
+		'edit_item'           => __( 'Edit Item', 'tsdrpg' ),
+		'update_item'         => __( 'Update Item', 'tsdrpg' ),
+		'search_items'        => __( 'Search Item', 'tsdrpg' ),
+		'not_found'           => __( 'Not found', 'tsdrpg' ),
+		'not_found_in_trash'  => __( 'Not found in Trash', 'tsdrpg' ),
+	);
+	$rewrite = array(
+		'slug'                => 'items',
+		'with_front'          => true,
+		'pages'               => true,
+		'feeds'               => true,
+	);
+	$args = array(
+		'label'               => __( 'tsdrpg_item', 'tsdrpg' ),
+		'description'         => __( 'Generic items go here', 'tsdrpg' ),
+		'labels'              => $labels,
+		'supports'            => array( 'title', 'editor', 'thumbnail', 'comments', 'revisions', 'custom-fields', 'page-attributes', ),
+		'taxonomies'          => array( 'category', 'post_tag' ),
+		'hierarchical'        => false,
+		'public'              => true,
+		'show_ui'             => true,
+		'show_in_menu'        => true,
+		'show_in_nav_menus'   => true,
+		'show_in_admin_bar'   => true,
+		'menu_position'       => 5,
+		'can_export'          => true,
+		'has_archive'         => true,
+		'exclude_from_search' => false,
+		'publicly_queryable'  => true,
+		'rewrite'             => $rewrite,
+		'capability_type'     => 'page',
+	);
+	register_post_type( 'tsdrpg_item', $args );
+
+}
+
+// Hook into the 'init' action
+add_action( 'init', 'tsdrpg_item', 0 );
+
+// Register Custom Post Type
 function tsdrpg_species_page() {
 
 	$labels = array(
@@ -257,6 +308,58 @@ function tsdrpg_species_page() {
 
 // Hook into the 'init' action
 add_action( 'init', 'tsdrpg_species_page', 0 );
+
+// Register Custom Post Type
+function tsdrpg_place() {
+
+	$labels = array(
+		'name'                => _x( 'Places', 'Post Type General Name', 'tsdrpg' ),
+		'singular_name'       => _x( 'Place', 'Post Type Singular Name', 'tsdrpg' ),
+		'menu_name'           => __( 'Places', 'tsdrpg' ),
+		'parent_item_colon'   => __( 'Parent Places:', 'tsdrpg' ),
+		'all_items'           => __( 'All Places', 'tsdrpg' ),
+		'view_item'           => __( 'View Places', 'tsdrpg' ),
+		'add_new_item'        => __( 'Add New Place', 'tsdrpg' ),
+		'add_new'             => __( 'Add New', 'tsdrpg' ),
+		'edit_item'           => __( 'Edit Place', 'tsdrpg' ),
+		'update_item'         => __( 'Update Place', 'tsdrpg' ),
+		'search_items'        => __( 'Search Places', 'tsdrpg' ),
+		'not_found'           => __( 'Not found', 'tsdrpg' ),
+		'not_found_in_trash'  => __( 'Not found in Trash', 'tsdrpg' ),
+	);
+	$rewrite = array(
+		'slug'                => 'places',
+		'with_front'          => true,
+		'pages'               => true,
+		'feeds'               => true,
+	);
+	$args = array(
+		'label'               => __( 'tsdrpg_place', 'tsdrpg' ),
+		'description'         => __( 'Settings for adventures and fun', 'tsdrpg' ),
+		'labels'              => $labels,
+		'supports'            => array( 'title', 'editor', 'excerpt', 'thumbnail', 'comments', 'revisions', 'custom-fields', 'page-attributes', ),
+		'taxonomies'          => array( 'category', 'post_tag', ' tsdrpg_place_types' ),
+		'hierarchical'        => true,
+		'public'              => true,
+		'show_ui'             => true,
+		'show_in_menu'        => true,
+		'show_in_nav_menus'   => true,
+		'show_in_admin_bar'   => true,
+		'menu_position'       => 20,
+		'menu_icon'           => 'dashicons-groups',
+		'can_export'          => true,
+		'has_archive'         => true,
+		'exclude_from_search' => false,
+		'publicly_queryable'  => true,
+		'rewrite'             => $rewrite,
+		'capability_type'     => 'page',
+	);
+	register_post_type( 'tsdrpg_place', $args );
+
+}
+
+// Hook into the 'init' action
+add_action( 'init', 'tsdrpg_place', 0 );
 
 // Register Custom Post Type
 function tsdrpg_spell() {
@@ -309,6 +412,58 @@ function tsdrpg_spell() {
 
 // Hook into the 'init' action
 add_action( 'init', 'tsdrpg_spell', 0 );
+
+// Register Custom Post Type
+function tsdrpg_vehicle() {
+
+	$labels = array(
+		'name'                => _x( 'Vehicles', 'Post Type General Name', 'tsdrpg' ),
+		'singular_name'       => _x( 'Vehicle', 'Post Type Singular Name', 'tsdrpg' ),
+		'menu_name'           => __( 'Vehicles', 'tsdrpg' ),
+		'parent_item_colon'   => __( 'Parent Vehicles:', 'tsdrpg' ),
+		'all_items'           => __( 'All Vehicles', 'tsdrpg' ),
+		'view_item'           => __( 'View Vehicle', 'tsdrpg' ),
+		'add_new_item'        => __( 'Add New Vehicle', 'tsdrpg' ),
+		'add_new'             => __( 'Add New', 'tsdrpg' ),
+		'edit_item'           => __( 'Edit Vehicle', 'tsdrpg' ),
+		'update_item'         => __( 'Update Vehicle', 'tsdrpg' ),
+		'search_items'        => __( 'Search Vehicles', 'tsdrpg' ),
+		'not_found'           => __( 'Not found', 'tsdrpg' ),
+		'not_found_in_trash'  => __( 'Not found in Trash', 'tsdrpg' ),
+	);
+	$rewrite = array(
+		'slug'                => 'vehicles',
+		'with_front'          => true,
+		'pages'               => true,
+		'feeds'               => true,
+	);
+	$args = array(
+		'label'               => __( 'tsdrpg_vehicle', 'tsdrpg' ),
+		'description'         => __( 'Objects that move you', 'tsdrpg' ),
+		'labels'              => $labels,
+		'supports'            => array( 'title', 'editor', 'excerpt', 'thumbnail', 'comments', 'revisions', 'custom-fields', 'page-attributes', ),
+		'taxonomies'          => array( 'category', 'post_tag', '' ),
+		'hierarchical'        => false,
+		'public'              => true,
+		'show_ui'             => true,
+		'show_in_menu'        => true,
+		'show_in_nav_menus'   => true,
+		'show_in_admin_bar'   => true,
+		'menu_position'       => 20,
+		'menu_icon'           => 'dashicons-groups',
+		'can_export'          => true,
+		'has_archive'         => true,
+		'exclude_from_search' => false,
+		'publicly_queryable'  => true,
+		'rewrite'             => $rewrite,
+		'capability_type'     => 'page',
+	);
+	register_post_type( 'tsdrpg_vehicle', $args );
+
+}
+
+// Hook into the 'init' action
+add_action( 'init', 'tsdrpg_vehicle', 0 );
 
 // Register Custom Post Type
 function tsdrpg_weapon() {
