@@ -310,6 +310,58 @@ function tsdrpg_spell() {
 // Hook into the 'init' action
 add_action( 'init', 'tsdrpg_spell', 0 );
 
+// Register Custom Post Type
+function tsdrpg_weapon() {
+
+	$labels = array(
+		'name'                => _x( 'Weapon', 'Post Type General Name', 'tsdrpg' ),
+		'singular_name'       => _x( 'Weapon', 'Post Type Singular Name', 'tsdrpg' ),
+		'menu_name'           => __( 'Weapons', 'tsdrpg' ),
+		'parent_item_colon'   => __( 'Parent Weapon:', 'tsdrpg' ),
+		'all_items'           => __( 'All Weapons', 'tsdrpg' ),
+		'view_item'           => __( 'View Weapon', 'tsdrpg' ),
+		'add_new_item'        => __( 'Add New Weapon', 'tsdrpg' ),
+		'add_new'             => __( 'Add New', 'tsdrpg' ),
+		'edit_item'           => __( 'Edit Weapon', 'tsdrpg' ),
+		'update_item'         => __( 'Update Weapon', 'tsdrpg' ),
+		'search_items'        => __( 'Search Weapons', 'tsdrpg' ),
+		'not_found'           => __( 'Not found', 'tsdrpg' ),
+		'not_found_in_trash'  => __( 'Not found in Trash', 'tsdrpg' ),
+	);
+	$rewrite = array(
+		'slug'                => 'weapons',
+		'with_front'          => true,
+		'pages'               => true,
+		'feeds'               => true,
+	);
+	$args = array(
+		'label'               => __( 'tsdrpg_weapon', 'tsdrpg' ),
+		'description'         => __( 'Items optimized for inducing harm', 'tsdrpg' ),
+		'labels'              => $labels,
+		'supports'            => array( 'title', 'editor', 'excerpt', 'thumbnail', 'comments', 'revisions', 'custom-fields', 'page-attributes', ),
+		'taxonomies'          => array( 'category', 'post_tag', ' tsdrpg_weapon_types' ),
+		'hierarchical'        => false,
+		'public'              => true,
+		'show_ui'             => true,
+		'show_in_menu'        => true,
+		'show_in_nav_menus'   => true,
+		'show_in_admin_bar'   => true,
+		'menu_position'       => 20,
+		'menu_icon'           => 'dashicons-groups',
+		'can_export'          => true,
+		'has_archive'         => true,
+		'exclude_from_search' => false,
+		'publicly_queryable'  => true,
+		'rewrite'             => $rewrite,
+		'capability_type'     => 'page',
+	);
+	register_post_type( 'tsdrpg_weapon', $args );
+
+}
+
+// Hook into the 'init' action
+add_action( 'init', 'tsdrpg_weapon', 0 );
+
 // Register Custom Taxonomy
 function tsdrpg_chapters() {
 
