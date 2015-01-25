@@ -265,6 +265,58 @@ function tsdrpg_item() {
 add_action( 'init', 'tsdrpg_item', 0 );
 
 // Register Custom Post Type
+function tsdrpg_person() {
+
+	$labels = array(
+		'name'                => _x( 'People', 'Post Type General Name', 'tsdrpg' ),
+		'singular_name'       => _x( 'Person', 'Post Type Singular Name', 'tsdrpg' ),
+		'menu_name'           => __( 'Skills', 'tsdrpg' ),
+		'parent_item_colon'   => __( 'Parent Skills:', 'tsdrpg' ),
+		'all_items'           => __( 'All Skills', 'tsdrpg' ),
+		'view_item'           => __( 'View Skills', 'tsdrpg' ),
+		'add_new_item'        => __( 'Add New Skill', 'tsdrpg' ),
+		'add_new'             => __( 'Add New', 'tsdrpg' ),
+		'edit_item'           => __( 'Edit Skill', 'tsdrpg' ),
+		'update_item'         => __( 'Update Skill', 'tsdrpg' ),
+		'search_items'        => __( 'Search Skills', 'tsdrpg' ),
+		'not_found'           => __( 'Not found', 'tsdrpg' ),
+		'not_found_in_trash'  => __( 'Not found in Trash', 'tsdrpg' ),
+	);
+	$rewrite = array(
+		'slug'                => 'people',
+		'with_front'          => true,
+		'pages'               => true,
+		'feeds'               => true,
+	);
+	$args = array(
+		'label'               => __( 'tsdrpg_person', 'tsdrpg' ),
+		'description'         => __( 'Someone in your setting', 'tsdrpg' ),
+		'labels'              => $labels,
+		'supports'            => array( 'title', 'editor', 'excerpt', 'thumbnail', 'comments', 'revisions', 'custom-fields', 'page-attributes', ),
+		'taxonomies'          => array( 'category', 'post_tag', ' tsdrpg_species', ' tsdrpg_classes' ),
+		'hierarchical'        => false,
+		'public'              => true,
+		'show_ui'             => true,
+		'show_in_menu'        => true,
+		'show_in_nav_menus'   => true,
+		'show_in_admin_bar'   => true,
+		'menu_position'       => 20,
+		'menu_icon'           => 'dashicons-groups',
+		'can_export'          => true,
+		'has_archive'         => true,
+		'exclude_from_search' => false,
+		'publicly_queryable'  => true,
+		'rewrite'             => $rewrite,
+		'capability_type'     => 'page',
+	);
+	register_post_type( 'tsdrpg_person', $args );
+
+}
+
+// Hook into the 'init' action
+add_action( 'init', 'tsdrpg_person', 0 );
+
+// Register Custom Post Type
 function tsdrpg_species_page() {
 
 	$labels = array(
@@ -308,6 +360,58 @@ function tsdrpg_species_page() {
 
 // Hook into the 'init' action
 add_action( 'init', 'tsdrpg_species_page', 0 );
+
+// Register Custom Post Type
+function tsdrpg_skill() {
+
+	$labels = array(
+		'name'                => _x( 'Skills', 'Post Type General Name', 'tsdrpg' ),
+		'singular_name'       => _x( 'Skill', 'Post Type Singular Name', 'tsdrpg' ),
+		'menu_name'           => __( 'Skills', 'tsdrpg' ),
+		'parent_item_colon'   => __( 'Parent Skills:', 'tsdrpg' ),
+		'all_items'           => __( 'All Skills', 'tsdrpg' ),
+		'view_item'           => __( 'View Skills', 'tsdrpg' ),
+		'add_new_item'        => __( 'Add New Skill', 'tsdrpg' ),
+		'add_new'             => __( 'Add New', 'tsdrpg' ),
+		'edit_item'           => __( 'Edit Skill', 'tsdrpg' ),
+		'update_item'         => __( 'Update Skill', 'tsdrpg' ),
+		'search_items'        => __( 'Search Skills', 'tsdrpg' ),
+		'not_found'           => __( 'Not found', 'tsdrpg' ),
+		'not_found_in_trash'  => __( 'Not found in Trash', 'tsdrpg' ),
+	);
+	$rewrite = array(
+		'slug'                => 'skills',
+		'with_front'          => true,
+		'pages'               => true,
+		'feeds'               => true,
+	);
+	$args = array(
+		'label'               => __( 'tsdrpg_skill', 'tsdrpg' ),
+		'description'         => __( 'These are talents you might need', 'tsdrpg' ),
+		'labels'              => $labels,
+		'supports'            => array( 'title', 'editor', 'excerpt', 'thumbnail', 'comments', 'revisions', 'custom-fields', 'page-attributes', ),
+		'taxonomies'          => array( 'category', 'post_tag', ' tsdrpg_place_types' ),
+		'hierarchical'        => false,
+		'public'              => true,
+		'show_ui'             => true,
+		'show_in_menu'        => true,
+		'show_in_nav_menus'   => true,
+		'show_in_admin_bar'   => true,
+		'menu_position'       => 20,
+		'menu_icon'           => 'dashicons-groups',
+		'can_export'          => true,
+		'has_archive'         => true,
+		'exclude_from_search' => false,
+		'publicly_queryable'  => true,
+		'rewrite'             => $rewrite,
+		'capability_type'     => 'page',
+	);
+	register_post_type( 'tsdrpg_skill', $args );
+
+}
+
+// Hook into the 'init' action
+add_action( 'init', 'tsdrpg_skill', 0 );
 
 // Register Custom Post Type
 function tsdrpg_place() {
