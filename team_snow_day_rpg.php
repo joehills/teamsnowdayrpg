@@ -78,6 +78,57 @@ add_action( 'init', 'tsdrpg_init' );
 // Wireup shortcodes
 
 // Declare Custom Post Types
+// Register Custom Post Type
+function tsdrpg_armor() {
+
+	$labels = array(
+		'name'                => _x( 'Armor', 'Post Type General Name', 'tsdrpg' ),
+		'singular_name'       => _x( 'Armor', 'Post Type Singular Name', 'tsdrpg' ),
+		'menu_name'           => __( 'Armor', 'tsdrpg' ),
+		'parent_item_colon'   => __( 'Parent Armor:', 'tsdrpg' ),
+		'all_items'           => __( 'All Armor', 'tsdrpg' ),
+		'view_item'           => __( 'View Armor', 'tsdrpg' ),
+		'add_new_item'        => __( 'Add New Armor', 'tsdrpg' ),
+		'add_new'             => __( 'Add New', 'tsdrpg' ),
+		'edit_item'           => __( 'Edit Armor', 'tsdrpg' ),
+		'update_item'         => __( 'Update Armor', 'tsdrpg' ),
+		'search_items'        => __( 'Search Armor', 'tsdrpg' ),
+		'not_found'           => __( 'Not found', 'tsdrpg' ),
+		'not_found_in_trash'  => __( 'Not found in Trash', 'tsdrpg' ),
+	);
+	$rewrite = array(
+		'slug'                => 'armor',
+		'with_front'          => true,
+		'pages'               => true,
+		'feeds'               => true,
+	);
+	$args = array(
+		'label'               => __( 'tsdrpg_armor', 'tsdrpg' ),
+		'description'         => __( 'Items you wear to prevent injury', 'tsdrpg' ),
+		'labels'              => $labels,
+		'supports'            => array( 'title', 'editor', 'excerpt', 'thumbnail', 'comments', 'revisions', 'custom-fields', 'page-attributes', ),
+		'taxonomies'          => array( 'category', 'post_tag', ' tsdrpg_sizes', ' tsdrpg_classes' ),
+		'hierarchical'        => false,
+		'public'              => true,
+		'show_ui'             => true,
+		'show_in_menu'        => true,
+		'show_in_nav_menus'   => true,
+		'show_in_admin_bar'   => true,
+		'menu_position'       => 20,
+		'menu_icon'           => 'dashicons-groups',
+		'can_export'          => true,
+		'has_archive'         => true,
+		'exclude_from_search' => false,
+		'publicly_queryable'  => true,
+		'rewrite'             => $rewrite,
+		'capability_type'     => 'page',
+	);
+	register_post_type( 'tsdrpg_armor', $args );
+
+}
+
+// Hook into the 'init' action
+add_action( 'init', 'tsdrpg_armor', 0 );
 
 // Register Custom Post Type
 function tsdrpg_chapter_intro() {
