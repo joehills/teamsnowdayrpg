@@ -1,17 +1,22 @@
 === Team Snow Day RPG ===
 Contributors:      Joe Hills
-Donate link:       http://pitfallsandpenguins.com
-Tags: 
+Donate link:       http://gum.co/penguins
 Requires at least: 3.9
 Tested up to:      3.9
 Stable tag:        0.1.0
 License:           GPLv2 or later
 License URI:       http://www.gnu.org/licenses/gpl-2.0.html
 
-A set of custom post types and taxonomies for RPG development
 
 == Description ==
+This plugin is currently a set of custom post types and taxonomies for RPG development.
 
+I am using it as a framework for an online version of the book Pitfalls and Penguins I helped write.
+
+=Roadmap=
+Now that the custom post types and taxonomies have been generated, I plan to add:
+1. Applicable custom meta boxes
+2. Shortcodes to display applicable meta data
 
 
 == Installation ==
