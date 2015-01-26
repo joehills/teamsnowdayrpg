@@ -745,6 +745,48 @@ function tsdrpg_dice() {
 add_action( 'init', 'tsdrpg_dice', 0 );
 
 // Register Custom Taxonomy
+function tsdrpg_spell_schools() {
+
+	$labels = array(
+		'name'                       => _x( 'Spell Schools', 'Taxonomy General Name', 'tsdrpg' ),
+		'singular_name'              => _x( 'Spell School', 'Taxonomy Singular Name', 'tsdrpg' ),
+		'menu_name'                  => __( 'Spell Schools', 'tsdrpg' ),
+		'all_items'                  => __( 'All Schools', 'tsdrpg' ),
+		'parent_item'                => __( 'Parent School', 'tsdrpg' ),
+		'parent_item_colon'          => __( 'Parent School:', 'tsdrpg' ),
+		'new_item_name'              => __( 'New School Name', 'tsdrpg' ),
+		'add_new_item'               => __( 'Add New School', 'tsdrpg' ),
+		'edit_item'                  => __( 'Edit School', 'tsdrpg' ),
+		'update_item'                => __( 'Update School', 'tsdrpg' ),
+		'separate_items_with_commas' => __( 'Separate Schools with commas', 'tsdrpg' ),
+		'search_items'               => __( 'Search Schools', 'tsdrpg' ),
+		'add_or_remove_items'        => __( 'Add or Remove Schools', 'tsdrpg' ),
+		'choose_from_most_used'      => __( 'Choose from the most used Schools', 'tsdrpg' ),
+		'not_found'                  => __( 'Not Found', 'tsdrpg' ),
+	);
+	$rewrite = array(
+		'slug'                       => 'schools',
+		'with_front'                 => true,
+		'hierarchical'               => false,
+	);
+	$args = array(
+		'labels'                     => $labels,
+		'hierarchical'               => false,
+		'public'                     => true,
+		'show_ui'                    => true,
+		'show_admin_column'          => true,
+		'show_in_nav_menus'          => true,
+		'show_tagcloud'              => true,
+		'rewrite'                    => $rewrite,
+	);
+	register_taxonomy( 'tsdrpg_spell_schools', array( 'post', ' page', ' tsdrpg_spell', ' tsdrpg_class' ), $args );
+
+}
+
+// Hook into the 'init' action
+add_action( 'init', 'tsdrpg_spell_schools', 0 );
+
+// Register Custom Taxonomy
 function tsdrpg_sizes() {
 
 	$labels = array(
