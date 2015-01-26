@@ -782,6 +782,43 @@ function tsdrpg_dice() {
 add_action( 'init', 'tsdrpg_dice', 0 );
 
 // Register Custom Taxonomy
+function tsdrpg_place_types() {
+
+	$labels = array(
+		'name'                       => _x( 'Place Types', 'Taxonomy General Name', 'tsdrpg' ),
+		'singular_name'              => _x( 'Place Type', 'Taxonomy Singular Name', 'tsdrpg' ),
+		'menu_name'                  => __( 'Place Types', 'tsdrpg' ),
+		'all_items'                  => __( 'All Place Types', 'tsdrpg' ),
+		'parent_item'                => __( 'Parent Place Type', 'tsdrpg' ),
+		'parent_item_colon'          => __( 'Parent Place Type:', 'tsdrpg' ),
+		'new_item_name'              => __( 'New Place Type', 'tsdrpg' ),
+		'add_new_item'               => __( 'Add New Place Type', 'tsdrpg' ),
+		'edit_item'                  => __( 'Edit Place Type', 'tsdrpg' ),
+		'update_item'                => __( 'Update Place Type', 'tsdrpg' ),
+		'separate_items_with_commas' => __( 'Separate Place Types with commas', 'tsdrpg' ),
+		'search_items'               => __( 'Search Place Types', 'tsdrpg' ),
+		'add_or_remove_items'        => __( 'Add or Remove Place Types', 'tsdrpg' ),
+		'choose_from_most_used'      => __( 'Choose from the most used Place Types', 'tsdrpg' ),
+		'not_found'                  => __( 'Not Found', 'tsdrpg' ),
+	);
+	$args = array(
+		'labels'                     => $labels,
+		'hierarchical'               => false,
+		'public'                     => true,
+		'show_ui'                    => true,
+		'show_admin_column'          => true,
+		'show_in_nav_menus'          => true,
+		'show_tagcloud'              => true,
+		'rewrite'                    => false,
+	);
+	register_taxonomy( 'tsdrpg_place_types', array( 'post', ' page', ' tsdrpg_place' ), $args );
+
+}
+
+// Hook into the 'init' action
+add_action( 'init', 'tsdrpg_place_types', 0 );
+
+// Register Custom Taxonomy
 function tsdrpg_spell_schools() {
 
 	$labels = array(
