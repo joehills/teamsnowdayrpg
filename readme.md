@@ -40,10 +40,7 @@ Screenshots
 Changelog
 =========
 
-= 0.1.0 =
-* First release
+0.1.0
+-----
+* First release, contains only custom post types and taxonomies
 
-== Upgrade Notice ==
-
-= 0.1.0 =
-First Release
