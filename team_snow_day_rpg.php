@@ -712,8 +712,8 @@ add_action( 'init', 'tsdrpg_chapters', 0 );
 function tsdrpg_crit_types() {
 
 	$labels = array(
-		'name'                       => _x( 'Spell Schools', 'Taxonomy General Name', 'tsdrpg' ),
-		'singular_name'              => _x( 'Spell School', 'Taxonomy Singular Name', 'tsdrpg' ),
+		'name'                       => _x( 'Crit Types', 'Taxonomy General Name', 'tsdrpg' ),
+		'singular_name'              => _x( 'Crit Type', 'Taxonomy Singular Name', 'tsdrpg' ),
 		'menu_name'                  => __( 'Crit Types', 'tsdrpg' ),
 		'all_items'                  => __( 'All Crit Types', 'tsdrpg' ),
 		'parent_item'                => __( 'Parent Crit Type', 'tsdrpg' ),
