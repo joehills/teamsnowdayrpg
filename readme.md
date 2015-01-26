@@ -24,6 +24,7 @@ I am using it as a framework for an online version of the book Pitfalls and Peng
 Roadmap
 -------
 Now that the custom post types and taxonomies have been generated, I plan to add:
+
 1. Applicable custom meta boxes
 2. Shortcodes to display applicable meta data
 
@@ -34,6 +35,7 @@ Manual Installation
 -------------------
 
 1. Upload the entire `/team-snow-day-rpg` directory to the `/wp-content/plugins/` directory.
+
 2. Activate Team Snow Day RPG through the 'Plugins' menu in WordPress.
 
 Frequently Asked Questions
