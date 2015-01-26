@@ -694,6 +694,42 @@ function tsdrpg_dice() {
 add_action( 'init', 'tsdrpg_dice', 0 );
 
 // Register Custom Taxonomy
+function tsdrpg_sizes() {
+
+	$labels = array(
+		'name'                       => _x( 'Sizes', 'Taxonomy General Name', 'tsdrpg' ),
+		'singular_name'              => _x( 'Size', 'Taxonomy Singular Name', 'tsdrpg' ),
+		'menu_name'                  => __( 'Sizes', 'tsdrpg' ),
+		'all_items'                  => __( 'All Sizes', 'tsdrpg' ),
+		'parent_item'                => __( 'Parent Size', 'tsdrpg' ),
+		'parent_item_colon'          => __( 'Parent Size:', 'tsdrpg' ),
+		'new_item_name'              => __( 'New Size Name', 'tsdrpg' ),
+		'add_new_item'               => __( 'Add New Size', 'tsdrpg' ),
+		'edit_item'                  => __( 'Edit Size', 'tsdrpg' ),
+		'update_item'                => __( 'Update Size', 'tsdrpg' ),
+		'separate_items_with_commas' => __( 'Separate Sizes with commas', 'tsdrpg' ),
+		'search_items'               => __( 'Search Sizes', 'tsdrpg' ),
+		'add_or_remove_items'        => __( 'Add or Remove Sizes', 'tsdrpg' ),
+		'choose_from_most_used'      => __( 'Choose from the most used Sizes', 'tsdrpg' ),
+		'not_found'                  => __( 'Not Found', 'tsdrpg' ),
+	);
+	$args = array(
+		'labels'                     => $labels,
+		'hierarchical'               => false,
+		'public'                     => true,
+		'show_ui'                    => true,
+		'show_admin_column'          => true,
+		'show_in_nav_menus'          => true,
+		'show_tagcloud'              => true,
+	);
+	register_taxonomy( 'tsdrpg_sizes', array( 'post', ' page', ' tsdrpg_species', ' tsdrpg_weapon', ' tsdrpg_item', ' tsdrpg_armor' ), $args );
+
+}
+
+// Hook into the 'init' action
+add_action( 'init', 'tsdrpg_sizes', 0 );
+
+// Register Custom Taxonomy
 function tsdrpg_weapon_types() {
 
 	$labels = array(
