@@ -709,6 +709,43 @@ function tsdrpg_chapters() {
 add_action( 'init', 'tsdrpg_chapters', 0 );
 
 // Register Custom Taxonomy
+function tsdrpg_crit_types() {
+
+	$labels = array(
+		'name'                       => _x( 'Spell Schools', 'Taxonomy General Name', 'tsdrpg' ),
+		'singular_name'              => _x( 'Spell School', 'Taxonomy Singular Name', 'tsdrpg' ),
+		'menu_name'                  => __( 'Crit Types', 'tsdrpg' ),
+		'all_items'                  => __( 'All Crit Types', 'tsdrpg' ),
+		'parent_item'                => __( 'Parent Crit Type', 'tsdrpg' ),
+		'parent_item_colon'          => __( 'Parent Crit Type:', 'tsdrpg' ),
+		'new_item_name'              => __( 'New Crit Type', 'tsdrpg' ),
+		'add_new_item'               => __( 'Add New Crit Type', 'tsdrpg' ),
+		'edit_item'                  => __( 'Edit Crit Type', 'tsdrpg' ),
+		'update_item'                => __( 'Update Crit Type', 'tsdrpg' ),
+		'separate_items_with_commas' => __( 'Separate Crit Types with commas', 'tsdrpg' ),
+		'search_items'               => __( 'Search Crit Types', 'tsdrpg' ),
+		'add_or_remove_items'        => __( 'Add or Remove Crit Types', 'tsdrpg' ),
+		'choose_from_most_used'      => __( 'Choose from the most used Crit Types', 'tsdrpg' ),
+		'not_found'                  => __( 'Not Found', 'tsdrpg' ),
+	);
+	$args = array(
+		'labels'                     => $labels,
+		'hierarchical'               => false,
+		'public'                     => true,
+		'show_ui'                    => true,
+		'show_admin_column'          => true,
+		'show_in_nav_menus'          => true,
+		'show_tagcloud'              => true,
+		'rewrite'                    => false,
+	);
+	register_taxonomy( 'tsdrpg_crit_types', array( 'post', ' page', ' tsdrpg_spell', ' tsdrpg_weapon' ), $args );
+
+}
+
+// Hook into the 'init' action
+add_action( 'init', 'tsdrpg_crit_types', 0 );
+
+// Register Custom Taxonomy
 function tsdrpg_dice() {
 
 	$labels = array(
