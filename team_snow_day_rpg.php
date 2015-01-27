@@ -932,4 +932,50 @@ function tsdrpg_weapon_types() {
 // Hook into the 'init' action
 add_action( 'init', 'tsdrpg_weapon_types', 0 );
 
+// CMB 2
 
+/**
+ * Get the bootstrap!
+ */
+if ( file_exists(  __DIR__ . '/cmb2/init.php' ) ) {
+  require_once  __DIR__ . '/cmb2/init.php';
+} elseif ( file_exists(  __DIR__ . '/CMB2/init.php' ) ) {
+  require_once  __DIR__ . '/CMB2/init.php';
+}
+
+add_filter( 'cmb2_meta_boxes', 'cmb2_tsdrpg_metaboxes' );
+/**
+ * Define the metabox and field configurations.
+ *
+ * @param  array $meta_boxes
+ * @return array
+ */
+function cmb2_tsdrpg_metaboxes( array $meta_boxes ) {
+
+	// Start with an underscore to hide fields from custom fields list
+	$prefix = '_tsdrpg_';
+	/**
+	 * Sample metabox to demonstrate each field type included
+	 */
+	$meta_boxes['class_metabox'] = array(
+		'id'            => 'abilities_metabox',
+		'title'         => __( 'Abilities', 'tsdrpg' ),
+		'object_types'  => array( 'tsdrpg_species_page', 'tsdrpg_class_page' ), // Post type
+		'context'       => 'normal',
+		'priority'      => 'high',
+		'show_names'    => true, // Show field names on the left
+		// 'cmb_styles' => false, // false to disable the CMB stylesheet
+		// 'closed'     => true, // true to keep the metabox closed by default
+		'fields'        => array(
+			array(
+				'name'    => __( '', 'tsdrpg' ),
+				'desc'    => __( 'Include abilities here.', 'tsdrpg' ),
+				'id'      => $prefix . 'abilities_wysiwyg',
+				'type'    => 'wysiwyg',
+				'options' => array( 'textarea_rows' => 15, ),
+			),
+		),
+	);
+
+	return $meta_boxes;
+}
