@@ -316,6 +316,57 @@ function tsdrpg_item() {
 add_action( 'init', 'tsdrpg_item', 0 );
 
 // Register Custom Post Type
+function tsdrpg_monsters() {
+
+	$labels = array(
+		'name'                => _x( 'Monsters', 'Post Type General Name', 'tsdrpg' ),
+		'singular_name'       => _x( 'Monster', 'Post Type Singular Name', 'tsdrpg' ),
+		'menu_name'           => __( 'Monsters', 'tsdrpg' ),
+		'parent_item_colon'   => __( 'Parent Monster:', 'tsdrpg' ),
+		'all_items'           => __( 'All Monsters', 'tsdrpg' ),
+		'view_item'           => __( 'View Monster', 'tsdrpg' ),
+		'add_new_item'        => __( 'Add New Monster', 'tsdrpg' ),
+		'add_new'             => __( 'Add New', 'tsdrpg' ),
+		'edit_item'           => __( 'Edit Monster', 'tsdrpg' ),
+		'update_item'         => __( 'Update Monster', 'tsdrpg' ),
+		'search_items'        => __( 'Search Monster', 'tsdrpg' ),
+		'not_found'           => __( 'Not found', 'tsdrpg' ),
+		'not_found_in_trash'  => __( 'Not found in Trash', 'tsdrpg' ),
+	);
+	$rewrite = array(
+		'slug'                => 'monsters',
+		'with_front'          => true,
+		'pages'               => true,
+		'feeds'               => true,
+	);
+	$args = array(
+		'label'               => __( 'tsdrpg_monster', 'tsdrpg' ),
+		'description'         => __( 'Monsters in your game', 'tsdrpg' ),
+		'labels'              => $labels,
+		'supports'            => array( 'title', 'editor', 'excerpt', 'thumbnail', 'comments', 'revisions', 'custom-fields', ),
+		'taxonomies'          => array( 'category', 'post_tag', 'tsdrpg_species', ' tsdrpg_class' ),
+		'hierarchical'        => false,
+		'public'              => true,
+		'show_ui'             => true,
+		'show_in_menu'        => true,
+		'show_in_nav_menus'   => true,
+		'show_in_admin_bar'   => true,
+		'menu_position'       => 20,
+		'can_export'          => true,
+		'has_archive'         => true,
+		'exclude_from_search' => false,
+		'publicly_queryable'  => true,
+		'rewrite'             => $rewrite,
+		'capability_type'     => 'page',
+	);
+	register_post_type( 'tsdrpg_monster', $args );
+
+}
+
+// Hook into the 'init' action
+add_action( 'init', 'tsdrpg_monsters', 0 );
+
+// Register Custom Post Type
 function tsdrpg_person() {
 
 	$labels = array(
