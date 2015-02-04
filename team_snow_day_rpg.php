@@ -241,7 +241,7 @@ function tsdrpg_feat() {
 		'label'               => __( 'tsdrpg_feat', 'tsdrpg' ),
 		'description'         => __( 'Feats allow additional character customization', 'tsdrpg' ),
 		'labels'              => $labels,
-		'supports'            => array( 'title', 'editor', 'excerpt', 'thumbnail', 'comments', 'revisions', 'custom-fields', 'page-attributes', ),
+		'supports'            => array( 'title', 'excerpt', 'thumbnail', 'comments', 'revisions', 'custom-fields', 'page-attributes', ),
 		'taxonomies'          => array( 'category', 'post_tag', ' tsdrpg_classes' ),
 		'hierarchical'        => false,
 		'public'              => true,
@@ -263,7 +263,7 @@ function tsdrpg_feat() {
 
 // Hook into the 'init' action
 add_action( 'init', 'tsdrpg_feat', 0 );
-
+ 
 // Register Custom Post Type
 function tsdrpg_item() {
 
@@ -301,6 +301,7 @@ function tsdrpg_item() {
 		'show_in_nav_menus'   => true,
 		'show_in_admin_bar'   => true,
 		'menu_position'       => 20,
+		'menu_icon'           => 'dashicons-products',
 		'can_export'          => true,
 		'has_archive'         => true,
 		'exclude_from_search' => false,
@@ -352,6 +353,7 @@ function tsdrpg_monsters() {
 		'show_in_nav_menus'   => true,
 		'show_in_admin_bar'   => true,
 		'menu_position'       => 20,
+		'menu_icon'           => 'dashicons-share-alt',
 		'can_export'          => true,
 		'has_archive'         => true,
 		'exclude_from_search' => false,
@@ -1008,15 +1010,13 @@ function cmb2_tsdrpg_metaboxes( array $meta_boxes ) {
 	/**
 	 * Sample metabox to demonstrate each field type included
 	 */
-	$meta_boxes['class_metabox'] = array(
+	$meta_boxes['abilities_metabox'] = array(
 		'id'            => 'abilities_metabox',
 		'title'         => __( 'Abilities', 'tsdrpg' ),
-		'object_types'  => array( 'tsdrpg_species_page', 'tsdrpg_class_page' ), // Post type
+		'object_types'  => array( 'tsdrpg_species_page', 'tsdrpg_class_page', 'tsdrpg_monster' ), // Post type
 		'context'       => 'normal',
 		'priority'      => 'high',
 		'show_names'    => true, // Show field names on the left
-		// 'cmb_styles' => false, // false to disable the CMB stylesheet
-		// 'closed'     => true, // true to keep the metabox closed by default
 		'fields'        => array(
 			array(
 				'name'    => __( '', 'tsdrpg' ),
@@ -1025,6 +1025,105 @@ function cmb2_tsdrpg_metaboxes( array $meta_boxes ) {
 				'type'    => 'wysiwyg',
 				'options' => array( 'textarea_rows' => 15, ),
 			),
+		),
+	);
+
+	$meta_boxes['feats_metabox'] = array(
+		'id'            => 'abilities_metabox',
+		'title'         => __( 'Feat Details', 'tsdrpg' ),
+		'object_types'  => array( 'tsdrpg_feat' ), // Post type
+		'context'       => 'normal',
+		'priority'      => 'high',
+		'show_names'    => true, // Show field names on the left
+		'fields'        => array(
+			array(
+				'name'    => __( 'Prequisites', 'tsdrpg' ),
+				'desc'    => __( '', 'tsdrpg' ),
+				'id'      => $prefix . 'prerequisites_wysiwyg',
+				'type'    => 'wysiwyg',
+				'options' => array( 'textarea_rows' => 5, ),
+			),
+			array(
+				'name'    => __( 'Benefits', 'tsdrpg' ),
+				'desc'    => __( '', 'tsdrpg' ),
+				'id'      => $prefix . 'benefits_wysiwyg',
+				'type'    => 'wysiwyg',
+				'options' => array( 'textarea_rows' => 5, ),
+			),
+			array(
+				'name'    => __( 'Normal', 'tsdrpg' ),
+				'desc'    => __( '', 'tsdrpg' ),
+				'id'      => $prefix . 'normal_wysiwyg',
+				'type'    => 'wysiwyg',
+				'options' => array( 'textarea_rows' => 5, ),
+			),
+			array(
+				'name'    => __( 'Special', 'tsdrpg' ),
+				'desc'    => __( '', 'tsdrpg' ),
+				'id'      => $prefix . 'special_wysiwyg',
+				'type'    => 'wysiwyg',
+				'options' => array( 'textarea_rows' => 5, ),
+			),
+		),
+	);
+
+
+	$meta_boxes['stats_metabox'] = array(
+		'id'            => 'stats_metabox',
+		'title'         => __( 'Stat block', 'tsdrpg' ),
+		'object_types'  => array( 'tsdrpg_person', 'tsdrpg_monster' ), // Post type
+		'context'       => 'normal',
+		'priority'      => 'high',
+		'show_names'    => 'true', // Show field names on the left
+		'fields'        => array(
+			array(
+				'name'    => __( 'STR', 'tsdrpg' ),
+				'desc'    => __( 'Strength', 'tsdrpg' ),
+				'id'      => $prefix . 'stats_str',
+				'type'    => 'text_small',
+			),
+			array(
+				'name'    => __( 'DEX', 'tsdrpg' ),
+				'desc'    => __( 'Dexterity', 'tsdrpg' ),
+				'id'      => $prefix . 'stats_dex',
+				'type'    => 'text_small',
+			),
+			array(
+				'name'    => __( 'CON', 'tsdrpg' ),
+				'desc'    => __( 'Constitution', 'tsdrpg' ),
+				'id'      => $prefix . 'stats_con',
+				'type'    => 'text_small',
+			),
+			array(
+				'name'    => __( 'INT', 'tsdrpg' ),
+				'desc'    => __( 'Intelligence', 'tsdrpg' ),
+				'id'      => $prefix . 'stats_int',
+				'type'    => 'text_small',
+			),
+			array(
+				'name'    => __( 'WIS', 'tsdrpg' ),
+				'desc'    => __( 'Wisdom', 'tsdrpg' ),
+				'id'      => $prefix . 'stats_wis',
+				'type'    => 'text_small',
+			),
+			array(
+				'name'    => __( 'CHA', 'tsdrpg' ),
+				'desc'    => __( 'Charisma', 'tsdrpg' ),
+				'id'      => $prefix . 'stats_cha',
+				'type'    => 'text_small',
+			),
+		),
+	);
+
+	
+	$meta_boxes['monster_metabox'] = array(
+		'id'            => 'stats_metabox',
+		'title'         => __( 'Stat block', 'tsdrpg' ),
+		'object_types'  => array( 'tsdrpg_person', 'tsdrpg_monster' ), // Post type
+		'context'       => 'normal',
+		'priority'      => 'high',
+		'show_names'    => 'true', // Show field names on the left
+		'fields'        => array(
 		),
 	);
 
