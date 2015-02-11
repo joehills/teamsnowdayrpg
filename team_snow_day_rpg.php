@@ -125,6 +125,77 @@ function cmb2_tsdrpg_metaboxes( array $meta_boxes ) {
 		),
 	);
 
+	$meta_boxes['dm_notes_metabox'] = array(
+		'id'            => 'dm_notes_metabox',
+		'title'         => __( 'DM Notes', 'tsdrpg' ),
+		'object_types'  => array( 'tsdrpg_armor', 'tsdrpg_chapter_intro', 'tsdrpg_class_page', 'tsdrpg_feat', 'tsdrpg_item', 'tsdrpg_monster', 'tsdrpg_person', 'tsdrpg_place', 'tsdrpg_skill', 'tsdrpg_spell', 'tsdrpg_species_page', 'tsdrpg_vehicle', 'tsdrpg_weapon' ), // Post type
+		'context'       => 'normal',
+		'priority'      => 'low',
+		'show_names'    => true, // Show field names on the left
+		'fields'        => array(
+			array(
+                                'name'    => __( 'Title', 'tsdrpg' ),
+                                'desc'    => __( '', 'tsdrpg' ),
+                                'id'      => $prefix . 'stats_str',
+                                'type'    => 'text_medium',
+                        ),
+			array(
+				'name'    => __( 'Notes', 'tsdrpg' ),
+				'desc'    => __( '', 'tsdrpg' ),
+				'id'      => $prefix . 'dm_notes_wysiwyg',
+				'type'    => 'wysiwyg',
+				'options' => array( 'textarea_rows' => 15, ),
+			),
+		),
+	);
+
+	$meta_boxes['player_tips_metabox'] = array(
+		'id'            => 'player_tips_metabox',
+		'title'         => __( 'Player Tips', 'tsdrpg' ),
+		'object_types'  => array( 'tsdrpg_armor', 'tsdrpg_chapter_intro', 'tsdrpg_class_page', 'tsdrpg_feat', 'tsdrpg_item', 'tsdrpg_monster', 'tsdrpg_person', 'tsdrpg_place', 'tsdrpg_skill', 'tsdrpg_spell', 'tsdrpg_species_page', 'tsdrpg_vehicle', 'tsdrpg_weapon' ), // Post type
+		'context'       => 'normal',
+		'priority'      => 'low',
+		'show_names'    => true, // Show field names on the left
+		'fields'        => array(
+			array(
+                                'name'    => __( 'Title', 'tsdrpg' ),
+                                'desc'    => __( '', 'tsdrpg' ),
+                                'id'      => $prefix . 'stats_str',
+                                'type'    => 'text_medium',
+                        ),
+			array(
+				'name'    => __( 'Tips', 'tsdrpg' ),
+				'desc'    => __( '', 'tsdrpg' ),
+				'id'      => $prefix . 'player_tips_wysiwyg',
+				'type'    => 'wysiwyg',
+				'options' => array( 'textarea_rows' => 15, ),
+			),
+		),
+	);
+	$meta_boxes['mechanics_metabox'] = array(
+		'id'            => 'mechanics_metabox',
+		'title'         => __( 'Mechanics Clarifications', 'tsdrpg' ),
+		'object_types'  => array( 'tsdrpg_armor', 'tsdrpg_chapter_intro', 'tsdrpg_class_page', 'tsdrpg_feat', 'tsdrpg_item', 'tsdrpg_monster', 'tsdrpg_person', 'tsdrpg_place', 'tsdrpg_skill', 'tsdrpg_spell', 'tsdrpg_species_page', 'tsdrpg_vehicle', 'tsdrpg_weapon' ), // Post type
+		'context'       => 'normal',
+		'priority'      => 'low',
+		'show_names'    => true, // Show field names on the left
+		'fields'        => array(
+			array(
+                                'name'    => __( 'Title', 'tsdrpg' ),
+                                'desc'    => __( '', 'tsdrpg' ),
+                                'id'      => $prefix . 'stats_str',
+                                'type'    => 'text_medium',
+                        ),
+			array(
+				'name'    => __( 'Clarification', 'tsdrpg' ),
+				'desc'    => __( '', 'tsdrpg' ),
+				'id'      => $prefix . 'mechanics_wysiwyg',
+				'type'    => 'wysiwyg',
+				'options' => array( 'textarea_rows' => 15, ),
+			),
+		),
+	);
+
 	$meta_boxes['feats_metabox'] = array(
 		'id'            => 'abilities_metabox',
 		'title'         => __( 'Feat Details', 'tsdrpg' ),
