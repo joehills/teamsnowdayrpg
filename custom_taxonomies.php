@@ -216,7 +216,7 @@ function tsdrpg_sizes() {
 		'show_in_nav_menus'          => true,
 		'show_tagcloud'              => true,
 	);
-	register_taxonomy( 'tsdrpg_sizes', array( 'post', ' page', ' tsdrpg_species', ' tsdrpg_weapon', ' tsdrpg_item', ' tsdrpg_armor' ), $args );
+	register_taxonomy( 'tsdrpg_sizes', array( 'post', ' page', ' tsdrpg_species', ' tsdrpg_weapon', ' tsdrpg_item', 'tsdrpg_armor', 'tsdrpg_monster' ), $args );
 
 }
 

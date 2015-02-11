@@ -85,7 +85,7 @@ require 'custom_taxonomies.php';
 
 
 /**
- * Get the bootstrap!
+ * Get the CMB2 bootstrap!
  */
 if ( file_exists(  __DIR__ . '/cmb2/init.php' ) ) {
   require_once  __DIR__ . '/cmb2/init.php';
@@ -208,19 +208,26 @@ function cmb2_tsdrpg_metaboxes( array $meta_boxes ) {
 				'desc'    => __( 'Charisma', 'tsdrpg' ),
 				'id'      => $prefix . 'stats_cha',
 				'type'    => 'text_small',
-			),
+			)
 		),
 	);
 
 	
 	$meta_boxes['monster_metabox'] = array(
-		'id'            => 'stats_metabox',
-		'title'         => __( 'Stat block', 'tsdrpg' ),
+		'id'            => 'monster_metabox',
+		'title'         => __( 'Monster info', 'tsdrpg' ),
 		'object_types'  => array( 'tsdrpg_person', 'tsdrpg_monster' ), // Post type
 		'context'       => 'normal',
 		'priority'      => 'high',
 		'show_names'    => 'true', // Show field names on the left
 		'fields'        => array(
+			array(
+				'name'     => __( 'Size', 'cmb2' ),
+				'desc'     => __( 'field description (optional)', 'cmb2' ),
+				'id'       => $prefix . 'size_taxonomy_select',
+				'type'     => 'taxonomy_select',
+				'taxonomy' => 'tsdrpg_sizes', // Taxonomy Slug
+			),
 		),
 	);
 
