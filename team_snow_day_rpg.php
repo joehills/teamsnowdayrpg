@@ -83,6 +83,8 @@ require 'custom_post_types.php';
 // Register Custom Taxonomy
 require 'custom_taxonomies.php';
 
+require 'custom_renderers.php';
+
 
 /**
  * Get the CMB2 bootstrap!
@@ -136,7 +138,7 @@ function cmb2_tsdrpg_metaboxes( array $meta_boxes ) {
 			array(
                                 'name'    => __( 'Title', 'tsdrpg' ),
                                 'desc'    => __( '', 'tsdrpg' ),
-                                'id'      => $prefix . 'stats_str',
+                                'id'      => $prefix . 'dm_notes_title',
                                 'type'    => 'text_medium',
                         ),
 			array(
@@ -160,7 +162,7 @@ function cmb2_tsdrpg_metaboxes( array $meta_boxes ) {
 			array(
                                 'name'    => __( 'Title', 'tsdrpg' ),
                                 'desc'    => __( '', 'tsdrpg' ),
-                                'id'      => $prefix . 'stats_str',
+                                'id'      => $prefix . 'player_tips_title',
                                 'type'    => 'text_medium',
                         ),
 			array(
@@ -183,7 +185,7 @@ function cmb2_tsdrpg_metaboxes( array $meta_boxes ) {
 			array(
                                 'name'    => __( 'Title', 'tsdrpg' ),
                                 'desc'    => __( '', 'tsdrpg' ),
-                                'id'      => $prefix . 'stats_str',
+                                'id'      => $prefix . 'mechanics_titles',
                                 'type'    => 'text_medium',
                         ),
 			array(
