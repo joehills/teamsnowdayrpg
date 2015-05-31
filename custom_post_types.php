@@ -69,6 +69,12 @@ function tsdrpg_chapter_intro() {
 		'not_found'           => __( 'Not found', 'tsdrpg' ),
 		'not_found_in_trash'  => __( 'Not found in Trash', 'tsdrpg' ),
 	);
+	$rewrite = array(
+		'slug'                => 'chapters',
+		'with_front'          => true,
+		'pages'               => true,
+		'feeds'               => true,
+	);
 	$args = array(
 		'label'               => __( 'tsdrpg_chapter_intro', 'tsdrpg' ),
 		'description'         => __( 'Introductory text of a chapter', 'tsdrpg' ),
@@ -85,6 +91,7 @@ function tsdrpg_chapter_intro() {
 		'menu_icon'           => 'dashicons-analytics',
 		'can_export'          => true,
 		'has_archive'         => true,
+		'rewrite'             => $rewrite,
 		'exclude_from_search' => false,
 		'publicly_queryable'  => true,
 		'capability_type'     => 'page',
